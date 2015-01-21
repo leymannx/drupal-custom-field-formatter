@@ -1,0 +1,4 @@
+name = Leading Zeros Field Formatter	
+description = Adding leading zeros to decimal fields
+package = Custom
+core = 7.x

@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Provides a field formatter to add leading zeros to decimal fields
+ */
+
+/**
+* Implements hook_field_formatter_info().
+*/
+function leading_zeros_field_formatter_info() {
+  $info = array(
+    'leading_zeros' => array( // Machine name of the formatter
+      'label' => t('Leading zeros'), 
+      'field types' => array('number_decimal'), // Scope (this one will only be available to decimal fields)
+      'description' => t('Adds leading zeros to decimal numbers.'),
+    ), 
+  );
+  return $info;
+}
+
+/**
+* Implements hook_field_formatter_view().
+*/
+function leading_zeros_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+    foreach ($items as $delta => $item) {
+    	$old_value = $item['value'];
+    	$new_value = sprintf('%03d', $old_value);
+	    $element[$delta]['#markup'] = $new_value;
+    }
+  return $element;
+}
