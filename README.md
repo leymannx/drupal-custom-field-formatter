@@ -1,2 +1,1 @@
-# drupal-custom-field-formatter
-adding leading zeros to a integer fielnd
+# Drupal Custom Field Formatter to Display Leading Zeros on Integer Field
